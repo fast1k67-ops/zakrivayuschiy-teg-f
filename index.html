@@ -16,7 +16,7 @@
   <body class="page">
     <header class="header">
       <h1 class="header__title">&lt;/HTML&gt;</h1>
-      <h2 class="header__subtitle">закрывающий тег</h2>
+      <p class="header__subtitle">закрывающий тег</p>
     </header>
     <main class="main">
       <article class="card">
@@ -28,7 +28,8 @@
           <img
             class="card__image filter-brightness"
             src="./images/image-0.png"
-            alt="автобус"
+            alt="автобус с высокой яркостью"
+            loading="lazy"
           />
         </div>
         <div class="card__content">
@@ -86,7 +87,8 @@
           <img
             class="card__image filter-opacity"
             src="./images/image-0.png"
-            alt=""
+            alt="полупрозрачный автобус"
+            loading="lazy"
           />
         </div>
         <div class="card__content">
@@ -100,7 +102,11 @@
           <p>Место для ваших воспоминаний о начале первого спринта.</p>
         </div>
         <div class="card__button">
-          <button class="card__icon-button button" type="button">
+          <button
+            class="card__icon-button button"
+            type="button"
+            aria-label="ставим лайк"
+          >
             <svg
               class="like-icon"
               aria-hidden="true"
@@ -146,7 +152,8 @@
           <img
             class="card__image filter-grayscale"
             src="./images/image-0.png"
-            alt=""
+            loading="lazy"
+            alt="перекрашеный автобус"
           />
         </div>
         <div class="card__content">
@@ -204,7 +211,8 @@
           <img
             class="card__image filter-combo"
             src="./images/image-0.png"
-            alt=""
+            alt="состареный автобус"
+            loading="lazy"
           />
         </div>
         <div class="card__content">
@@ -264,7 +272,8 @@
           <img
             class="card__image filter-soft-invert"
             src="./images/image-0.png"
-            alt=""
+            alt="инвертированый автобус"
+            loading="lazy"
           />
         </div>
         <div class="card__content">
@@ -325,7 +334,8 @@
           <img
             class="card__image filter-contrast"
             src="./images/image-0.png"
-            alt=""
+            alt="испорченый автобус"
+            loading="lazy"
           />
         </div>
         <div class="card__content">
@@ -383,7 +393,8 @@
           <img
             class="card__image filter-sepia"
             src="./images/image-0.png"
-            alt=""
+            alt="еще один испорченый автобус"
+            loading="lazy"
           />
         </div>
         <div class="card__content">
@@ -443,7 +454,8 @@
           <img
             class="card__image filter-hue"
             src="./images/image-0.png"
-            alt=""
+            alt="ночной автобус"
+            loading="lazy"
           />
         </div>
         <div class="card__content">
@@ -522,7 +534,7 @@
           type="button"
           onclick="window['dialog-id'].close()"
         >
-          <span class="button__text">OK</span>
+          <span class="button__text">ок</span>
         </button>
       </dialog>
     </main>

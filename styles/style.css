@@ -62,7 +62,7 @@
   display: flex;
   align-items: center;
   font-size: 18px;
-  line-height: 21.78px;
+  line-height: 1.361em;
   font-variation-settings: "wght" var(--weight-font-title);
   padding-inline: 10px;
   padding-block: 3px;
@@ -86,10 +86,14 @@
   z-index: 2;
 }
 
-@supports (-webkit-text-stroke: 1px var(--label-stroke-color)) {
+@supports (
+  (text-stroke: 1px var(--label-stroke-color)) or
+    (-webkit-text-stroke: 1px var(--label-stroke-color))
+) {
   .card__image-label {
     -webkit-text-stroke: 1px var(--label-stroke-color);
     text-shadow: none;
+    text-stroke: 1px var(--label-stroke-color);
   }
 }
 
@@ -98,6 +102,7 @@
   inline-size: 100%;
   object-fit: cover;
   aspect-ratio: 1 / 1;
+  object-position: top;
 }
 
 .card__content {
@@ -191,6 +196,7 @@
   font-family: var(--accent-font), fantasy;
   font-size: 14px;
   line-height: 21px;
+  text-transform: uppercase;
 }
 
 .button__save {
@@ -275,11 +281,6 @@ dialog::backdrop {
 @media (width <= 376px) {
   .header {
     padding-block: 120px;
-  }
-
-  .card__image-label {
-    top: 22px;
-    right: 12px;
   }
 
   .card__content {

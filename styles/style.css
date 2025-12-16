@@ -15,12 +15,10 @@
   min-block-size: 100dvb;
   max-inline-size: 700px;
   margin: 100px auto;
-  font-family: var(--main-font), sans-serif;
-  font-variation-settings: 'wght' var(--weight-font-main);
-  background-image: 
-    var(--gradient-liner-horizontal), 
-    var(--gradient-liner-vertical), 
-    var(--gradient-blackout);
+  font-family: var(--main-font), "Helvetica", "Arial", sans-serif;
+  font-variation-settings: "wght" var(--weight-font-main);
+  background-image: var(--gradient-liner-horizontal),
+    var(--gradient-liner-vertical), var(--gradient-blackout);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -35,7 +33,7 @@
   padding-block: 128px;
   background-color: #fff;
   border: 2px solid #000;
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), fantasy;
   text-transform: uppercase;
 }
 
@@ -61,12 +59,13 @@
 }
 
 .card__title {
+  display: flex;
+  align-items: center;
   font-size: 18px;
   line-height: 21.78px;
-  font-variation-settings: 'wght' var(--weight-font-title);
+  font-variation-settings: "wght" var(--weight-font-title);
   padding-inline: 10px;
   padding-block: 3px;
-  min-block-size: 33px;
   border-bottom: 2px solid #000;
 }
 
@@ -80,9 +79,11 @@
   right: 25px;
   mix-blend-mode: hard-light;
   opacity: 0.5;
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), fantasy;
   font-size: 14px;
-  text-shadow: -1px 0 var(--label-stroke-color), 0 1px var(--label-stroke-color), 1px 0 var(--label-stroke-color), 0 -1px var(--label-stroke-color);
+  text-shadow: -1px 0 var(--label-stroke-color), 0 1px var(--label-stroke-color),
+    1px 0 var(--label-stroke-color), 0 -1px var(--label-stroke-color);
+  z-index: 2;
 }
 
 @supports (-webkit-text-stroke: 1px var(--label-stroke-color)) {
@@ -90,12 +91,12 @@
     -webkit-text-stroke: 1px var(--label-stroke-color);
     text-shadow: none;
   }
-} 
+}
 
 .card__image {
   display: block;
   inline-size: 100%;
-  object-fit: contain;
+  object-fit: cover;
   aspect-ratio: 1 / 1;
 }
 
@@ -113,6 +114,7 @@
   justify-content: flex-end;
   padding: 0 25px 25px 0;
   gap: 2px;
+  align-items: center;
 }
 
 .button {
@@ -123,6 +125,7 @@
   transition: box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
+  border: 2px solid #000;
 }
 
 .button:hover {
@@ -130,7 +133,7 @@
 }
 
 .button::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -149,8 +152,7 @@
   outline: none;
 }
 
-.button:focus-visible {
-  border: 2px solid #000;
+.button:focus-visible:not(.card__icon-button) {
   box-shadow: 2px 2px 0px 0px #000;
   outline: none;
 }
@@ -159,6 +161,13 @@
   max-block-size: 38px;
   background-color: #fff;
   border: 2px solid transparent;
+  display: flex;
+  align-items: center;
+  transition: border 0.3s ease;
+}
+
+.card__icon-button::before {
+  content: none;
 }
 
 .card__icon-button:focus {
@@ -167,7 +176,6 @@
 
 .card__icon-button:focus-visible {
   border: 2px solid #000;
-  transition: border 0.3s ease;
 }
 
 .card__like-button {
@@ -180,10 +188,9 @@
   z-index: 1;
   color: #fff;
   mix-blend-mode: difference;
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), fantasy;
   font-size: 14px;
   line-height: 21px;
-  mix-blend-mode: difference;
 }
 
 .button__save {
@@ -227,18 +234,14 @@
 
 dialog::backdrop {
   background-color: rgb(0 0 0 / 0.75);
-} 
+}
 
 .filter-brightness {
   filter: brightness(180%);
 }
 
 .filter-opacity {
-  filter: opacity(30%);
-}
-
-.card__image-label:has( + .filter-opacity) {
-  mix-blend-mode: difference;
+  filter: opacity(60%);
 }
 
 .filter-grayscale {
@@ -246,34 +249,32 @@ dialog::backdrop {
 }
 
 .filter-combo {
-  filter: blur(2px) hue-rotate(290deg); 
-}
-
-.card__image-label:has( + .filter-combo) {
-  z-index: 2;
+  filter: blur(2px) hue-rotate(290deg);
 }
 
 .filter-soft-invert {
   filter: invert(100%) saturate(70%);
 }
 
+.card__image-label:has(+ .filter-soft-invert) {
+  mix-blend-mode: difference;
+}
+
 .filter-contrast {
   filter: contrast(200%);
 }
 
-.filter-invert {
-  filter: invert(100%) sepia(80%) brightness(90%);
+.filter-sepia {
+  filter: sepia(80%);
 }
 
+.filter-hue {
+  filter: hue-rotate(45deg);
+}
 
 @media (width <= 376px) {
   .header {
     padding-block: 120px;
-  }
-
-  .card__title {
-    padding-top: 4px;
-    padding-bottom: 6px;
   }
 
   .card__image-label {
@@ -298,7 +299,7 @@ dialog::backdrop {
   }
 
   .dialog[open] {
-    padding: 30px 42px;
+    padding: 32px 40px;
     max-inline-size: 341px;
   }
 }

@@ -133,6 +133,10 @@
   border: 2px solid #000;
 }
 
+.button__uppercase {
+  text-transform: uppercase;
+}
+
 .button:hover {
   cursor: pointer;
 }
@@ -196,7 +200,6 @@
   font-family: var(--accent-font), fantasy;
   font-size: 14px;
   line-height: 21px;
-  text-transform: uppercase;
 }
 
 .button__save {
